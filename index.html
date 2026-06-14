@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Made Ready Budget Tracker | Automated Google Sheets Expense Tracker UK | Made Ready Co</title>
-<meta name="description" content="Made Ready Budget Tracker — automated Google Sheets budget tracker for UK banks. Imports Monzo, Chase, Starling and Barclays CSV. Auto-categorises every transaction. One-time purchase. Made Ready Co.">
+<meta name="description" content="Made Ready Budget Tracker — the only UK bank budget tracker on Etsy. Imports Monzo, Chase, Starling, Barclays and Revolut CSV. Auto-categorises every transaction. One-time purchase. Made Ready Co.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);bac
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-mark{width:28px;height:28px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .nav-logo-mark svg{width:16px;height:16px;fill:#fff}
-.nav-brand{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:-0.2px}
+.nav-brand{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:0.2px}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-links{display:flex;align-items:center;gap:1.5rem}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color .2s}
@@ -119,8 +119,8 @@ body.menu-open{overflow:hidden}
 [data-theme="light"] .formula-text{color:#1a6b2e}
 .cursor{display:inline-block;width:2px;height:14px;background:var(--green-light);margin-left:1px;vertical-align:middle;animation:blink 1s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-eyebrow{font-size:12px;font-weight:500;color:var(--green-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
-.hero-h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;letter-spacing:-1.5px;color:var(--text-primary);margin-bottom:1.25rem;transition:color .25s}
+.hero-eyebrow{font-size:12px;font-weight:500;color:var(--green-light);letter-spacing:0.1rem;text-transform:uppercase;margin-bottom:1rem}
+.hero-h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;letter-spacing:0.5px;color:var(--text-primary);margin-bottom:1.25rem;transition:color .25s}
 .hero-h1 em{font-style:normal;color:var(--green-light)}
 .hero-sub{font-size:1.05rem;color:var(--text-muted);max-width:560px;line-height:1.75;margin-bottom:1.5rem;font-weight:300}
 .bank-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem}
@@ -175,8 +175,8 @@ body.menu-open{overflow:hidden}
 /* ── GENERIC SECTION ── */
 section{padding:80px 2rem;transition:background .25s}
 .si{max-width:960px;margin:0 auto}
-.eyebrow{font-size:11px;font-weight:500;color:var(--green-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem}
-.sh2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;letter-spacing:-0.8px;line-height:1.2;margin-bottom:1rem;color:var(--text-primary)}
+.eyebrow{font-size:11px;font-weight:500;color:var(--green-light);letter-spacing:0.15rem;text-transform:uppercase;margin-bottom:0.75rem}
+.sh2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;letter-spacing:0.15px;line-height:1.2;margin-bottom:1rem;color:var(--text-primary)}
 .ssub{font-size:1rem;color:var(--text-muted);max-width:560px;line-height:1.75;font-weight:300}
 
 /* ── HOW IT WORKS ── */
@@ -191,13 +191,13 @@ section{padding:80px 2rem;transition:background .25s}
 .step-tag{display:inline-block;font-size:10px;background:rgba(171,130,255,0.1);color:#8957e5;border:1px solid rgba(171,130,255,0.25);padding:2px 8px;border-radius:20px;margin-top:6px;font-family:var(--font-mono)}
 [data-theme="dark"] .step-tag{color:#C9B8FF}
 .how-visual{background:var(--bg-mid);border:1px solid var(--border);border-radius:12px;padding:24px;position:sticky;top:80px;transition:background .25s,border-color .25s}
-.hv-label{font-size:10px;color:var(--text-faint);margin-bottom:16px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1em}
+.hv-label{font-size:10px;color:var(--text-faint);margin-bottom:16px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1rem}
 .ai-flow{display:flex;flex-direction:column;gap:8px}
 .flow-node{background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:12px;font-family:var(--font-mono);position:relative;transition:background .25s}
 .flow-node.trig{border-color:rgba(52,168,83,0.35);background:rgba(52,168,83,0.04)}
 .flow-node.claude-n{border-color:rgba(26,115,232,0.35);background:rgba(26,115,232,0.04)}
 .flow-node.result{border-color:rgba(52,168,83,0.35);background:rgba(52,168,83,0.07)}
-.fn-label{font-size:10px;color:var(--text-faint);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.06em}
+.fn-label{font-size:10px;color:var(--text-faint);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.1rem}
 .fn-content{color:var(--text-body);line-height:1.5}
 .flow-arrow{text-align:center;color:var(--text-faint);font-size:11px;padding:1px 0}
 .fn-badge{position:absolute;top:8px;right:8px;font-size:10px;padding:2px 7px;border-radius:20px}
@@ -256,7 +256,7 @@ section{padding:80px 2rem;transition:background .25s}
 .cc.feat small{display:block;font-size:11px;color:var(--text-faint);margin-top:2px;line-height:1.5}
 .cc.chk{text-align:center;display:flex;align-items:center;justify-content:center}
 .cc.pro-chk{text-align:center;background:rgba(52,168,83,0.03);border-left:1px solid rgba(52,168,83,0.1);display:flex;align-items:center;justify-content:center}
-.cc.section-lbl{font-size:10px;color:var(--text-faint);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;padding:9px 22px}
+.cc.section-lbl{font-size:10px;color:var(--text-faint);letter-spacing:0.1rem;text-transform:uppercase;font-weight:500;padding:9px 22px}
 .chk-yes{color:var(--green-mid);font-size:16px}
 .chk-no{color:var(--text-faint);font-size:18px;font-weight:300}
 .ai-lbl{background:rgba(171,130,255,0.1);color:#8957e5;border:1px solid rgba(171,130,255,0.25);font-size:10px;padding:3px 9px;border-radius:20px;font-family:var(--font-mono);white-space:nowrap}
@@ -273,7 +273,7 @@ section{padding:80px 2rem;transition:background .25s}
 .pcb-std{background:var(--bg-soft);color:var(--text-muted);border:1px solid var(--border)}
 .pcb-pro{background:rgba(52,168,83,0.1);color:var(--green-light);border:1px solid rgba(52,168,83,0.3)}
 .pc-name{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text-primary);margin-bottom:8px}
-.pc-amount{font-family:var(--font-display);font-size:40px;font-weight:600;color:var(--text-primary);letter-spacing:-2px;line-height:1;margin-bottom:4px}
+.pc-amount{font-family:var(--font-display);font-size:40px;font-weight:600;color:var(--text-primary);letter-spacing:0px;line-height:1;margin-bottom:4px}
 .pc-amount sup{font-size:18px;font-weight:400;letter-spacing:0;vertical-align:top;margin-top:7px;display:inline-block;color:var(--text-muted)}
 .pc-note{font-size:12px;color:var(--text-faint);margin-bottom:18px}
 .pc-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border)}
@@ -300,7 +300,7 @@ section{padding:80px 2rem;transition:background .25s}
 .proof-role{font-size:11px;color:var(--text-faint)}
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:3rem}
 .stat-cell{background:var(--bg-mid);padding:26px 22px;text-align:center;transition:background .25s}
-.stat-num{font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--green-light);letter-spacing:-1px}
+.stat-num{font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:var(--green-light);letter-spacing:0px}
 .stat-label{font-size:13px;color:var(--text-faint);margin-top:4px}
 
 /* ── FAQ ── */
@@ -320,7 +320,7 @@ section{padding:80px 2rem;transition:background .25s}
 .etsy-inner{max-width:680px;margin:0 auto;text-align:center}
 .etsy-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,124,0,0.08);border:1px solid rgba(245,124,0,0.25);color:#E67700;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:1.75rem}
 [data-theme="dark"] .etsy-badge{color:#F57C00}
-.etsy-h{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;color:var(--text-primary);letter-spacing:-0.8px;margin-bottom:1rem}
+.etsy-h{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;color:var(--text-primary);letter-spacing:0.15px;margin-bottom:1rem}
 .etsy-sub{font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.7}
 .etsy-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-etsy{background:#F1641E;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
@@ -332,7 +332,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
 .footer-inner{max-width:960px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:36px}
 .footer-brand p{font-size:13px;color:var(--text-faint);margin-top:10px;line-height:1.6;max-width:240px}
-.footer-col h5{font-size:11px;font-weight:500;color:var(--text-muted);letter-spacing:0.09em;text-transform:uppercase;margin-bottom:12px}
+.footer-col h5{font-size:11px;font-weight:500;color:var(--text-muted);letter-spacing:0.1rem;text-transform:uppercase;margin-bottom:12px}
 .footer-col a{display:block;font-size:13px;color:var(--text-faint);text-decoration:none;margin-bottom:8px;transition:color .2s}
 .footer-col a:hover{color:var(--text-primary)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
@@ -340,20 +340,67 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
 .footer-tags{display:flex;gap:6px;flex-wrap:wrap}
 .footer-tag{font-size:10px;color:var(--text-faint);background:var(--bg-soft);padding:3px 8px;border-radius:3px;font-family:var(--font-mono)}
 
+/* ── UK DIFFERENTIATOR BANNER ── */
+.uk-banner{background:linear-gradient(135deg,rgba(30,126,52,0.12) 0%,rgba(52,168,83,0.06) 100%);border-top:1px solid rgba(52,168,83,0.2);border-bottom:1px solid rgba(52,168,83,0.2);padding:40px 2rem;transition:background .25s}
+.uk-banner-inner{max-width:960px;margin:0 auto}
+.uk-banner-label{font-size:11px;font-weight:700;color:var(--green-light);letter-spacing:0.1rem;text-transform:uppercase;margin-bottom:24px;text-align:center}
+.uk-stats{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-bottom:24px}
+.uk-stat{text-align:center;padding:0 20px}
+.uk-stat-num{font-family:var(--font-display);font-size:2.4rem;font-weight:800;color:var(--green-light);letter-spacing:0px;line-height:1;margin-bottom:8px}
+.uk-stat-desc{font-size:12px;color:var(--text-muted);line-height:1.5;max-width:180px;margin:0 auto}
+.uk-stat-divider{width:1px;height:60px;background:rgba(52,168,83,0.25);flex-shrink:0}
+.uk-banner-verdict{text-align:center;font-size:14px;color:var(--text-muted);font-style:italic;border-top:1px solid rgba(52,168,83,0.15);padding-top:20px;max-width:620px;margin:0 auto;line-height:1.7}
+.uk-banner-verdict strong{color:var(--text-primary);font-style:normal}
+
+/* ── CSV SECTION ── */
+.csv-section{background:var(--bg-mid);border-top:1px solid var(--border)}
+.csv-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:3rem;align-items:start}
+.csv-explainer{display:flex;flex-direction:column;gap:28px}
+.csv-what{display:flex;gap:16px;align-items:flex-start}
+.csv-what-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.csv-what-title{font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:10px}
+.csv-what-text{font-size:13px;color:var(--text-muted);line-height:1.7}
+.csv-banks-title{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.csv-bank-list{display:flex;flex-direction:column;gap:0}
+.csv-bank{padding:12px 0;border-bottom:1px solid var(--border)}
+.csv-bank:last-child{border-bottom:none}
+.csv-bank-name{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:4px}
+.csv-bank-steps{font-size:12px;color:var(--text-muted);line-height:1.6}
+.csv-bank-steps strong{color:var(--text-body)}
+.csv-visual{display:flex;flex-direction:column;gap:0;position:sticky;top:80px}
+.csv-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;transition:background .25s}
+.csv-card-label{font-size:10px;font-weight:700;color:var(--text-faint);letter-spacing:0.1rem;text-transform:uppercase;margin-bottom:12px}
+.csv-file{background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.csv-file-header{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg-mid);border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+.csv-file-icon{font-size:14px}
+.csv-file-name{color:var(--text-body);font-weight:500}
+.csv-code{padding:12px;font-family:var(--font-mono);font-size:11px;line-height:1.8;overflow-x:auto}
+.csv-row{display:block;color:var(--text-muted)}
+.csv-row.csv-header{color:var(--green-light);font-weight:500}
+.csv-row.csv-more{color:var(--text-faint);font-style:italic}
+.csv-card-note{font-size:12px;color:var(--text-faint);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.csv-steps-mini{display:flex;flex-direction:column;gap:8px}
+.csv-step-mini{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-muted)}
+.csv-step-n{width:20px;height:20px;border-radius:50%;background:rgba(52,168,83,0.12);border:1px solid rgba(52,168,83,0.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--green-light);flex-shrink:0;margin-top:1px}
+
 /* ── RESPONSIVE ── */
 @media(max-width:760px){
   .hamburger{display:flex!important}
   .nav-links{display:none!important}
   nav{padding:0 1.25rem}
   .hero{padding:100px 1.25rem 60px}
-  .hero-h1{font-size:2rem;letter-spacing:-1px}
+  .hero-h1{font-size:2rem;letter-spacing:0px}
   .formula-bar{font-size:11px;max-width:100%}
   .formula-text{font-size:10px}
   .hero-trust{gap:1rem}
   .preview-wrap{padding:0 1.25rem 60px}
-  .how-grid,.sec-grid{grid-template-columns:1fr}
-  .how-visual{position:static}
-  .sec-callout{position:static;margin-top:2rem}
+  .uk-stats{grid-template-columns:1fr 1fr;gap:16px}
+  .uk-stat-divider{display:none}
+  .uk-stat{padding:0}
+  .uk-stat-num{font-size:1.8rem}
+  .csv-grid,.how-grid,.sec-grid{grid-template-columns:1fr}
+  .csv-visual{position:static}
+  .how-visual,.sec-callout{position:static;margin-top:2rem}
   section{padding:60px 1.25rem}
   .pricing-section .price-grid{grid-template-columns:1fr}
   .compare-hdr,.crow{grid-template-columns:1fr 80px 80px}
@@ -391,6 +438,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
   <div class="nav-right">
     <div class="nav-links">
       <a href="#how-it-works">How it works</a>
+      <a href="#csv">What is a CSV?</a>
       <a href="#features">Features</a>
       <a href="#security">Your data</a>
       <a href="#pricing">Pricing</a>
@@ -415,6 +463,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
 <!-- MOBILE MENU DRAWER -->
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
   <a href="#how-it-works" onclick="closeMenu()">How it works</a>
+  <a href="#csv" onclick="closeMenu()">What is a CSV?</a>
   <a href="#features" onclick="closeMenu()">Features</a>
   <a href="#security" onclick="closeMenu()">Your data &amp; privacy</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
@@ -432,25 +481,26 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
       <div class="formula-fx">fx</div>
       <div class="formula-text">=IMPORT_BANK("monzo.csv") → auto-categorise → dashboard<span class="cursor"></span></div>
     </div>
-    <div class="hero-eyebrow">Made Ready Budget Tracker · Google Sheets · UK Banks</div>
+    <div class="hero-eyebrow">The only UK bank budget tracker on Etsy</div>
     <h1 class="hero-h1">Stop sorting your<br>bank statements<br><em>by hand.</em></h1>
-    <p class="hero-sub">Made Ready Budget Tracker is a Google Sheets budget tracker that imports your UK bank CSV, categorises every transaction automatically, and shows your safe-to-spend in real time. No manual entry. No subscription. Works entirely in your own Google account.</p>
+    <p class="hero-sub">Made Ready Budget Tracker imports your Monzo, Chase, Starling or Barclays bank statement in seconds, categorises every transaction automatically, and shows your safe-to-spend in real time. The only Google Sheets budget tracker built specifically for UK banks. No manual entry. No subscription. Yours forever.</p>
     <div class="bank-pills">
       <div class="bank-pill"><div class="bank-pill-dot"></div>Monzo</div>
       <div class="bank-pill"><div class="bank-pill-dot"></div>Chase UK</div>
       <div class="bank-pill"><div class="bank-pill-dot"></div>Starling</div>
       <div class="bank-pill"><div class="bank-pill-dot"></div>Barclays</div>
-      <div class="bank-pill"><div class="bank-pill-dot"></div>Any UK bank CSV</div>
+      <div class="bank-pill"><div class="bank-pill-dot"></div>Revolut</div>
+      <div class="bank-pill"><div class="bank-pill-dot"></div>HSBC · NatWest · Lloyds +</div>
     </div>
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="6.5" stroke="currentColor" fill="none"/><path d="M5.5 4.5l4 2.5-4 2.5V4.5z"/></svg>
         See pricing
       </a>
-      <a href="#how-it-works" class="btn-secondary">How it works</a>
+      <a href="#csv" class="btn-secondary">What is a CSV?</a>
     </div>
     <div class="hero-trust">
-      <div class="hero-trust-item"><div class="trust-dot"></div>One-time purchase · no subscription</div>
+      <div class="hero-trust-item"><div class="trust-dot"></div>The only UK bank CSV importer on Etsy</div>
       <div class="hero-trust-item"><div class="trust-dot"></div>Your data stays in your Google account</div>
       <div class="hero-trust-item"><div class="trust-dot"></div>Set up in under 10 minutes</div>
     </div>
@@ -566,12 +616,12 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
         <div class="sgrn">1</div><div class="sgc hdr" style="grid-column:span 5">🤖 Made Ready Budget — Automation Settings</div>
         <div class="sgrn">2</div><div class="sgc">Auto-categorise trigger</div><div class="sgc grn">✓ Enabled</div><div class="sgc"></div><div class="sgc dim">Runs nightly at midnight</div><div class="sgc"></div>
         <div class="sgrn">3</div><div class="sgc">AI Smart Categorise</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Claude AI via Made Ready API</div><div class="sgc"></div>
-        <div class="sgrn">4</div><div class="sgc">Monthly AI insight</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Writes to Dashboard on 1st</div><div class="sgc"></div>
+        <div class="sgrn">4</div><div class="sgc">Supported banks</div><div class="sgc grn">✓ 6 presets</div><div class="sgc"></div><div class="sgc dim">Monzo · Chase · Starling · Barclays · Revolut · Generic</div><div class="sgc"></div>
         <div class="sgrn">5</div><div class="sgc">Anomaly alerts</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Flags duplicates &amp; spikes</div><div class="sgc"></div>
         <div class="sgrn">6</div><div class="sgc hdr" style="grid-column:span 5">📥 CSV Bank Import Log</div>
         <div class="sgrn">7</div><div class="sgc dim">14/06/2025 09:12</div><div class="sgc">Monzo</div><div class="sgc grn">✓ 47 rows imported</div><div class="sgc grn">✓ 44 auto-categorised</div><div class="sgc dim">3 manual</div>
         <div class="sgrn">8</div><div class="sgc dim">01/06/2025 08:44</div><div class="sgc">Chase</div><div class="sgc grn">✓ 31 rows imported</div><div class="sgc grn">✓ 31 auto-categorised</div><div class="sgc dim">0 manual</div>
-        <div class="sgrn">9</div><div class="sgc dim">01/05/2025 09:01</div><div class="sgc">Starling</div><div class="sgc grn">✓ 28 rows imported</div><div class="sgc grn">✓ 27 auto-categorised</div><div class="sgc dim">1 manual</div>
+        <div class="sgrn">9</div><div class="sgc dim">01/05/2025 09:01</div><div class="sgc">Revolut</div><div class="sgc grn">✓ 28 rows imported</div><div class="sgc grn">✓ 27 auto-categorised</div><div class="sgc dim">1 manual</div>
       </div>
       <div class="tab-caption">All automations run silently in the background. The 🤖 Made Ready Budget menu in Google Sheets gives you manual control whenever you need it.</div>
     </div>
@@ -579,7 +629,38 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
+<!-- UK DIFFERENTIATOR BANNER -->
+<div class="uk-banner">
+  <div class="uk-banner-inner">
+    <div class="uk-banner-label">Why Made Ready Budget Tracker is different</div>
+    <div class="uk-stats">
+      <div class="uk-stat">
+        <div class="uk-stat-num">50M+</div>
+        <div class="uk-stat-desc">UK digital bank accounts active in 2026 — Monzo, Chase, Starling, Barclays, Revolut</div>
+      </div>
+      <div class="uk-stat-divider"></div>
+      <div class="uk-stat">
+        <div class="uk-stat-num">39%</div>
+        <div class="uk-stat-desc">of UK budgeters use spreadsheets — vs only 9% who use budgeting apps (YouGov 2026)</div>
+      </div>
+      <div class="uk-stat-divider"></div>
+      <div class="uk-stat">
+        <div class="uk-stat-num">0</div>
+        <div class="uk-stat-desc">other Etsy budget trackers with built-in UK bank CSV import for Monzo, Chase, Starling or Barclays</div>
+      </div>
+      <div class="uk-stat-divider"></div>
+      <div class="uk-stat">
+        <div class="uk-stat-num">63%</div>
+        <div class="uk-stat-desc">of Britons plan to cut spending in 2026 — more people than ever need a tool that actually works (YouGov Jan 2026)</div>
+      </div>
+    </div>
+    <div class="uk-banner-verdict">
+      Every other budget spreadsheet on Etsy was built for Americans. Made Ready Budget Tracker was built for the way UK banking actually works.
+    </div>
+  </div>
+</div>
+
+
 <section class="how-section" id="how-it-works">
   <div class="si">
     <div class="eyebrow">How it works</div>
@@ -652,7 +733,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
       <div class="feat-card">
         <div class="feat-icon fi-green">📥</div>
         <div class="feat-h">UK bank CSV import</div>
-        <p class="feat-p">One-click import sidebar supports Monzo, Chase UK, Starling, and Barclays CSV exports. Paste your raw bank CSV, select your bank, and the tracker cleans, formats, and appends every row automatically.</p>
+        <p class="feat-p">One-click import sidebar supports Monzo, Chase UK, Starling, Barclays, and Revolut CSV exports — plus a Generic format for HSBC, NatWest, Lloyds, Nationwide, Santander, and any other UK bank. Paste your raw CSV, select your bank, and the tracker formats and imports every row automatically.</p>
         <span class="feat-tag ft-std">Standard + Pro</span>
       </div>
       <div class="feat-card">
@@ -702,6 +783,91 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
         <div class="feat-h">Net worth tracker</div>
         <p class="feat-p">Track assets, liabilities, savings pots, and debt payoff progress over time. See your full financial position — not just spending — and watch it improve month by month.</p>
         <span class="feat-tag ft-std">Standard + Pro</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSV EXPLAINER -->
+<section class="csv-section" id="csv">
+  <div class="si">
+    <div class="eyebrow">Before you ask</div>
+    <h2 class="sh2">What is a CSV — and where<br>do I download one?</h2>
+    <p class="ssub">You don't need to know anything about spreadsheets or files to use MRBT. Here's all you need to know.</p>
+
+    <div class="csv-grid">
+      <div class="csv-explainer">
+        <div class="csv-what">
+          <div class="csv-what-icon">📄</div>
+          <div>
+            <div class="csv-what-title">A CSV is just a list of your transactions</div>
+            <p class="csv-what-text">CSV stands for "Comma-Separated Values" — but ignore that. In plain English, it's a simple file your bank lets you download that contains a list of everything you've spent and received. Each row is one transaction: the date, the merchant name, and the amount. Nothing more, nothing less.</p>
+            <p class="csv-what-text" style="margin-top:10px">It does <strong>not</strong> contain your account password, sort code, account number, or anything that could be used to access your bank. It's the digital equivalent of your paper bank statement — just easier to work with.</p>
+          </div>
+        </div>
+
+        <div class="csv-banks">
+          <div class="csv-banks-title">How to download your CSV — by bank</div>
+          <div class="csv-bank-list">
+            <div class="csv-bank">
+              <div class="csv-bank-name">🟠 Monzo</div>
+              <div class="csv-bank-steps">App → Account tab → scroll down → <strong>Export Transactions</strong> → choose date range → <strong>Download CSV</strong></div>
+            </div>
+            <div class="csv-bank">
+              <div class="csv-bank-name">🔵 Chase UK</div>
+              <div class="csv-bank-steps">App → Transactions → tap the <strong>filter/export icon</strong> (top right) → <strong>Export as CSV</strong> → choose date range</div>
+            </div>
+            <div class="csv-bank">
+              <div class="csv-bank-name">🟢 Starling</div>
+              <div class="csv-bank-steps">App → tap your account → <strong>Statement</strong> → <strong>Download</strong> → select <strong>CSV</strong> format</div>
+            </div>
+            <div class="csv-bank">
+              <div class="csv-bank-name">🔷 Barclays</div>
+              <div class="csv-bank-steps">Online banking → <strong>Statements</strong> → <strong>Export</strong> → choose <strong>CSV format</strong> → download</div>
+            </div>
+            <div class="csv-bank">
+              <div class="csv-bank-name">🟣 Revolut</div>
+              <div class="csv-bank-steps">App → <strong>Profile</strong> → <strong>Statements</strong> → <strong>Excel/CSV</strong> → choose date range → export</div>
+            </div>
+            <div class="csv-bank">
+              <div class="csv-bank-name">🏦 HSBC, NatWest, Lloyds, Nationwide, Santander</div>
+              <div class="csv-bank-steps">Online banking → <strong>Statements</strong> or <strong>Transaction history</strong> → look for <strong>Export</strong>, <strong>Download</strong>, or <strong>Save as CSV</strong>. All major UK banks support CSV export.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="csv-visual">
+        <div class="csv-card">
+          <div class="csv-card-label">What a CSV looks like inside</div>
+          <div class="csv-file">
+            <div class="csv-file-header">
+              <span class="csv-file-icon">📄</span>
+              <span class="csv-file-name">monzo_june_2025.csv</span>
+            </div>
+            <div class="csv-code">
+<span class="csv-row csv-header">Date,Description,Amount,Category</span>
+<span class="csv-row">14/06/2025,TESCO STORES 3456,-34.71,Groceries</span>
+<span class="csv-row">13/06/2025,DELIVEROO,-22.50,Eating out</span>
+<span class="csv-row">13/06/2025,UBER *TRIP,-9.40,Transport</span>
+<span class="csv-row">12/06/2025,NETFLIX.COM,-17.99,Entertainment</span>
+<span class="csv-row">11/06/2025,SALARY BACS,3200.00,Income</span>
+<span class="csv-row csv-more">... 42 more rows</span>
+            </div>
+          </div>
+          <div class="csv-card-note">Just dates, descriptions, and amounts. No passwords. No account numbers. Nothing sensitive beyond what's already on your paper statement.</div>
+        </div>
+
+        <div class="csv-card" style="margin-top:14px">
+          <div class="csv-card-label">What MRBT does with it</div>
+          <div class="csv-steps-mini">
+            <div class="csv-step-mini"><span class="csv-step-n">1</span><span>You paste the CSV into the import sidebar inside Google Sheets</span></div>
+            <div class="csv-step-mini"><span class="csv-step-n">2</span><span>MRBT cleans and formats every row automatically</span></div>
+            <div class="csv-step-mini"><span class="csv-step-n">3</span><span>The auto-categoriser assigns a category to each transaction</span></div>
+            <div class="csv-step-mini"><span class="csv-step-n">4</span><span>Your dashboard updates instantly with real spending data</span></div>
+          </div>
+          <div class="csv-card-note" style="margin-top:12px">The whole process takes about 90 seconds. Then delete the CSV from your downloads — you don't need it anymore.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -786,9 +952,9 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
     <p class="ssub">Both give you a fully automated UK budget tracker. Pro adds Claude AI running invisibly inside the sheet.</p>
     <div class="compare-wrap">
       <div class="compare-hdr">
-        <div class="chc" style="color:var(--text-faint);font-size:11px;text-transform:uppercase;letter-spacing:0.08em">Feature</div>
-        <div class="chc std">MRBT Standard<br><span style="font-size:16px;font-family:var(--font-display);letter-spacing:-0.5px;color:var(--green-light)">£14.99</span></div>
-        <div class="chc pro">MRBT Pro<br><span style="font-size:16px;font-family:var(--font-display);letter-spacing:-0.5px">£34.99</span></div>
+        <div class="chc" style="color:var(--text-faint);font-size:11px;text-transform:uppercase;letter-spacing:0.1rem">Feature</div>
+        <div class="chc std">MRBT Standard<br><span style="font-size:16px;font-family:var(--font-display);letter-spacing:0px;color:var(--green-light)">£14.99</span></div>
+        <div class="chc pro">MRBT Pro<br><span style="font-size:16px;font-family:var(--font-display);letter-spacing:0px">£34.99</span></div>
       </div>
       <div class="crow section-row"><div class="cc section-lbl">Core tracker</div><div class="cc chk"></div><div class="cc pro-chk"></div></div>
       <div class="crow"><div class="cc feat">5-tab Google Sheets system<small>Setup, Transactions, Dashboard, Net Worth, Automations</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
@@ -796,7 +962,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
       <div class="crow"><div class="cc feat">Budget vs actual dashboard<small>QUERY-powered, real-time</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
       <div class="crow"><div class="cc feat">Net worth tracker<small>Assets, liabilities, debt payoff over time</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
       <div class="crow section-row"><div class="cc section-lbl">UK bank import</div><div class="cc chk"></div><div class="cc pro-chk"></div></div>
-      <div class="crow"><div class="cc feat">CSV import sidebar<small>Monzo, Chase UK, Starling, Barclays, Generic</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
+      <div class="crow"><div class="cc feat">CSV import sidebar<small>Monzo, Chase UK, Starling, Barclays, Revolut, Generic</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
       <div class="crow"><div class="cc feat">Any UK bank (generic CSV)<small>Works with virtually any bank that exports CSV</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
       <div class="crow section-row"><div class="cc section-lbl">Categorisation</div><div class="cc chk"></div><div class="cc pro-chk"></div></div>
       <div class="crow"><div class="cc feat">Keyword auto-categorisation<small>80+ UK merchants pre-loaded, runs overnight</small></div><div class="cc chk"><span class="chk-yes">✓</span></div><div class="cc pro-chk"><span class="chk-yes">✓</span></div></div>
@@ -828,7 +994,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
         <div class="pc-desc">Full automated budget tracker for Google Sheets. Works the moment you open it. Perfect for anyone switching from manual budgeting or a fintech app.</div>
         <div class="pc-features">
           <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>5-tab Google Sheets budget tracker</span></div>
-          <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>UK bank CSV import (Monzo, Chase, Starling, Barclays)</span></div>
+          <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>UK bank CSV import (Monzo, Chase, Starling, Barclays, Revolut)</span></div>
           <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>80+ UK merchant auto-categorisation</span></div>
           <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Live budget dashboard + safe-to-spend</span></div>
           <div class="pc-feature"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2EA043"/><path d="M4 7l2 2 4-4" stroke="#2EA043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Net worth tracker</span></div>
@@ -864,9 +1030,9 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
     <div class="eyebrow">What people say</div>
     <h2 class="sh2">From people who've stopped<br>doing it manually</h2>
     <div class="stats-row">
-      <div class="stat-cell"><div class="stat-num">10 min</div><div class="stat-label">Average setup time</div></div>
-      <div class="stat-cell"><div class="stat-num">80+</div><div class="stat-label">UK merchants pre-loaded</div></div>
-      <div class="stat-cell"><div class="stat-num">£0</div><div class="stat-label">Ongoing cost after purchase</div></div>
+      <div class="stat-cell"><div class="stat-num">39%</div><div class="stat-label">of UK budgeters use spreadsheets (YouGov 2026)</div></div>
+      <div class="stat-cell"><div class="stat-num">63%</div><div class="stat-label">of Britons cutting spending in 2026 (YouGov)</div></div>
+      <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">other Etsy trackers with UK bank CSV import</div></div>
     </div>
     <div class="proof-grid">
       <div class="proof-card">
@@ -899,8 +1065,12 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
         <div class="faq-a"><p>None at all. You need a free Google account and the ability to download a CSV from your bank app — something most people do in under a minute. The ReadMe PDF and 90-second Loom video walk you through every step. Most buyers are set up in under 10 minutes.</p></div>
       </div>
       <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is a CSV and how do I get one from my bank?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>A CSV is a simple file your bank lets you download containing a list of your transactions — dates, merchant names, and amounts. It doesn't contain passwords or account numbers. Every major UK bank supports CSV export: in Monzo go to Account → Export Transactions. In Starling go to your account → Statement → Download → CSV. In Chase tap the export icon in the transactions screen. In Barclays go to Statements → Export. In Revolut go to Profile → Statements → CSV. For HSBC, NatWest, Lloyds, Nationwide and Santander look for Export or Download in your online banking statement view. The full step-by-step guide is in the "What is a CSV?" section above.</p></div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Which UK banks does the CSV import support?<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>The import sidebar has built-in presets for Monzo, Chase UK, Starling, and Barclays. There's also a Generic format that works with any UK bank that exports CSV files — covering HSBC, Nationwide, NatWest, Lloyds, Santander, and virtually every other UK bank and credit card. MRBT Pro's AI categorisation works with any bank regardless of CSV format.</p></div>
+        <div class="faq-a"><p>The import sidebar has built-in presets for Monzo, Chase UK, Starling, Barclays, and Revolut. There's also a Generic format that works with any UK bank that exports CSV files — covering HSBC, Nationwide, NatWest, Lloyds, Santander, and virtually every other UK bank and credit card. MRBT Pro's AI categorisation works with any bank regardless of CSV format.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Is it safe to put my bank statement data into Google Sheets?<span class="faq-toggle">+</span></div>
@@ -960,6 +1130,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
       <div class="footer-col">
         <h5>Product</h5>
         <a href="#features">Features</a>
+        <a href="#csv">What is a CSV?</a>
         <a href="#comparison">Standard vs Pro</a>
         <a href="#security">Your data &amp; privacy</a>
         <a href="#pricing">Pricing</a>
@@ -977,7 +1148,8 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
       <div class="footer-tags">
         <span class="footer-tag">Made Ready Budget Tracker</span>
         <span class="footer-tag">Google Sheets UK</span>
-        <span class="footer-tag">Monzo · Chase · Starling · Barclays</span>
+        <span class="footer-tag">Monzo · Chase · Starling · Barclays · Revolut</span>
+        <span class="footer-tag">UK bank CSV import</span>
         <span class="footer-tag">Digital download · Etsy</span>
       </div>
     </div>
@@ -1007,7 +1179,7 @@ function switchTab(name){
   }
 }
 /* Default to Setup tab on load */
-switchTab('setup');
+document.addEventListener('DOMContentLoaded',function(){switchTab('setup');});
 function toggleTheme(){
   const html=document.documentElement;
   const isDark=html.getAttribute('data-theme')==='dark';
