@@ -146,11 +146,14 @@ body.menu-open{overflow:hidden}
 .sheet-menu-items span.ai{color:var(--green-light);font-weight:500}
 .sheet-formula-bar{display:flex;align-items:center;background:var(--formula-bg);border:1px solid var(--border);border-radius:4px;font-family:var(--font-mono);font-size:12px;overflow:hidden;margin:8px 12px}
 .sfb-ref{background:var(--formula-cell);color:var(--text-muted);padding:4px 10px;border-right:1px solid var(--border);flex-shrink:0}
-.sfb-val{padding:4px 12px;color:#1A73E8;overflow:hidden;white-space:nowrap}
+.sfb-val{padding:4px 12px;color:#1A73E8;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 [data-theme="dark"] .sfb-val{color:#79C0FF}
 .sheet-tabs{display:flex;background:var(--formula-bg);border-bottom:1px solid var(--border);padding:6px 8px 0;overflow-x:auto;gap:0}
-.stab{padding:6px 14px;font-size:12px;font-family:var(--font-mono);border-radius:4px 4px 0 0;cursor:pointer;white-space:nowrap;border:1px solid transparent;border-bottom:none;transition:all .2s;color:var(--text-faint)}
+.stab{padding:6px 14px;font-size:12px;font-family:var(--font-mono);border-radius:4px 4px 0 0;cursor:pointer;white-space:nowrap;border:1px solid transparent;border-bottom:none;transition:all .2s;color:var(--text-faint);user-select:none}
 .stab.active{background:var(--sheet-tab-active);color:var(--text-primary);border-color:var(--border)}
+.stab:not(.active):hover{color:var(--text-muted);background:rgba(255,255,255,0.03)}
+.tab-panel{animation:fadeTab .18s ease}
+@keyframes fadeTab{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}
 .sheet-grid{display:grid;grid-template-columns:36px repeat(5,1fr);font-size:11px;font-family:var(--font-mono)}
 .sgch{background:var(--bg-soft);border-bottom:1px solid var(--border);border-right:1px solid var(--border);padding:4px 8px;text-align:center;color:var(--text-faint);font-size:10px}
 .sgrn{background:var(--bg-soft);border-bottom:1px solid var(--border);border-right:1px solid var(--border);padding:4px 6px;text-align:center;color:var(--text-faint);font-size:10px}
@@ -167,6 +170,7 @@ body.menu-open{overflow:hidden}
 .ai-banner{background:rgba(52,168,83,0.06);border-top:1px solid rgba(52,168,83,0.2);padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--green-mid)}
 [data-theme="dark"] .ai-banner{background:rgba(52,168,83,0.08);color:var(--green-light)}
 .ai-pill{background:rgba(52,168,83,0.15);color:var(--green-light);padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;border:1px solid rgba(52,168,83,0.3);flex-shrink:0}
+.tab-caption{padding:10px 16px;font-size:12px;color:var(--text-faint);border-top:1px solid var(--border-light);font-style:italic;line-height:1.5}
 
 /* ── GENERIC SECTION ── */
 section{padding:80px 2rem;transition:background .25s}
@@ -467,30 +471,111 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
         <span>File</span>&nbsp;&nbsp;<span>Edit</span>&nbsp;&nbsp;<span>View</span>&nbsp;&nbsp;<span>Insert</span>&nbsp;&nbsp;<span>Format</span>&nbsp;&nbsp;<span>Data</span>&nbsp;&nbsp;<span class="ai">🤖 Made Ready Budget</span>
       </div>
     </div>
+
+    <!-- Formula bar — updates per tab -->
     <div class="sheet-formula-bar">
-      <div class="sfb-ref">B2</div>
-      <div class="sfb-val">=QUERY('💳 Transactions'!A:E,"SELECT D, SUM(E) WHERE A IS NOT NULL GROUP BY D LABEL SUM(E) 'Spent'",1)</div>
+      <div class="sfb-ref" id="sfb-ref">A1</div>
+      <div class="sfb-val" id="sfb-val">=IF(B2="","Enter your monthly income",B2)</div>
     </div>
+
+    <!-- Tabs -->
     <div class="sheet-tabs">
-      <div class="stab">⚙️ Setup</div>
-      <div class="stab">💳 Transactions</div>
-      <div class="stab active">📊 Dashboard</div>
-      <div class="stab">📈 Net Worth</div>
-      <div class="stab">🤖 Automations</div>
+      <div class="stab active" data-tab="setup"       onclick="switchTab('setup')">⚙️ Setup</div>
+      <div class="stab"        data-tab="transactions" onclick="switchTab('transactions')">💳 Transactions</div>
+      <div class="stab"        data-tab="dashboard"    onclick="switchTab('dashboard')">📊 Dashboard</div>
+      <div class="stab"        data-tab="networth"     onclick="switchTab('networth')">📈 Net Worth</div>
+      <div class="stab"        data-tab="automations"  onclick="switchTab('automations')">🤖 Automations</div>
     </div>
-    <div class="sheet-grid">
-      <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
-      <div class="sgrn">1</div><div class="sgc hdr">Category</div><div class="sgc hdr">Budget</div><div class="sgc hdr">Spent</div><div class="sgc hdr">Remaining</div><div class="sgc hdr">Status</div>
-      <div class="sgrn">2</div><div class="sgc">Groceries</div><div class="sgc dim">£350</div><div class="sgc">£287.43</div><div class="sgc grn">£62.57</div><div class="sgc grn">✓ Under</div>
-      <div class="sgrn">3</div><div class="sgc">Dining Out</div><div class="sgc dim">£120</div><div class="sgc">£148.90</div><div class="sgc red">−£28.90</div><div class="sgc red">⚠ Over</div>
-      <div class="sgrn">4</div><div class="sgc">Transport</div><div class="sgc dim">£80</div><div class="sgc">£64.20</div><div class="sgc grn">£15.80</div><div class="sgc grn">✓ Under</div>
-      <div class="sgrn">5</div><div class="sgc">Subscriptions</div><div class="sgc dim">£45</div><div class="sgc">£52.97</div><div class="sgc red">−£7.97</div><div class="sgc red">⚠ Over</div>
-      <div class="sgrn">6</div><div class="sgc hl" style="font-weight:600">💰 Safe to spend</div><div class="sgc hl"></div><div class="sgc hl blue">=B12−SUMIF(…)</div><div class="sgc hl grn" style="font-weight:600">£312.44</div><div class="sgc hl grn">← this month</div>
+
+    <!-- TAB CONTENT PANELS -->
+
+    <!-- ⚙️ SETUP -->
+    <div class="tab-panel" id="tab-setup">
+      <div class="sheet-grid">
+        <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
+        <div class="sgrn">1</div><div class="sgc hdr" style="grid-column:span 2">💰 Income &amp; Settings</div><div class="sgc hdr"></div><div class="sgc hdr" style="grid-column:span 2">🏷️ Keyword → Category Rules</div>
+        <div class="sgrn">2</div><div class="sgc">Monthly income</div><div class="sgc grn">£3,200.00</div><div class="sgc"></div><div class="sgc dim">TESCO</div><div class="sgc">Groceries</div>
+        <div class="sgrn">3</div><div class="sgc">Currency</div><div class="sgc">GBP £</div><div class="sgc"></div><div class="sgc dim">UBER</div><div class="sgc">Transport</div>
+        <div class="sgrn">4</div><div class="sgc">Budget period</div><div class="sgc">Monthly</div><div class="sgc"></div><div class="sgc dim">NETFLIX</div><div class="sgc">Subscriptions</div>
+        <div class="sgrn">5</div><div class="sgc hdr" style="grid-column:span 2">📋 Spending Categories</div><div class="sgc hdr"></div><div class="sgc dim">DELIVEROO</div><div class="sgc">Dining Out</div>
+        <div class="sgrn">6</div><div class="sgc">Groceries</div><div class="sgc dim">£350</div><div class="sgc"></div><div class="sgc dim">AMZN</div><div class="sgc">Shopping</div>
+        <div class="sgrn">7</div><div class="sgc">Dining Out</div><div class="sgc dim">£120</div><div class="sgc"></div><div class="sgc dim">SPOTIFY</div><div class="sgc">Subscriptions</div>
+        <div class="sgrn">8</div><div class="sgc">Transport</div><div class="sgc dim">£80</div><div class="sgc"></div><div class="sgc dim">BP OIL</div><div class="sgc">Transport</div>
+        <div class="sgrn">9</div><div class="sgc">Subscriptions</div><div class="sgc dim">£45</div><div class="sgc"></div><div class="sgc dim">COSTA</div><div class="sgc">Dining Out</div>
+        <div class="sgrn">10</div><div class="sgc">Shopping</div><div class="sgc dim">£100</div><div class="sgc"></div><div class="sgc dim">+ 70 more…</div><div class="sgc grn">pre-loaded</div>
+      </div>
+      <div class="tab-caption">Enter your income, set budget targets per category, and define keyword → category matching rules. The engine does the rest.</div>
     </div>
-    <div class="ai-banner">
-      <span class="ai-pill">MRBT PRO</span>
-      <span>✨ AI insight: Your dining out spend is 24% above budget this month. Cooking at home 3 more times could free up around £30.</span>
+
+    <!-- 💳 TRANSACTIONS -->
+    <div class="tab-panel" id="tab-transactions" style="display:none">
+      <div class="sheet-grid">
+        <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
+        <div class="sgrn">1</div><div class="sgc hdr">Date</div><div class="sgc hdr">Account</div><div class="sgc hdr">Description</div><div class="sgc hdr">Category</div><div class="sgc hdr">Amount</div>
+        <div class="sgrn">2</div><div class="sgc dim">14/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">TESCO STORES 3456</div><div class="sgc grn">Groceries</div><div class="sgc red">−£34.71</div>
+        <div class="sgrn">3</div><div class="sgc dim">13/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">DELIVEROO</div><div class="sgc grn">Dining Out</div><div class="sgc red">−£22.50</div>
+        <div class="sgrn">4</div><div class="sgc dim">13/06/2025</div><div class="sgc dim">Chase</div><div class="sgc">UBER *TRIP</div><div class="sgc grn">Transport</div><div class="sgc red">−£9.40</div>
+        <div class="sgrn">5</div><div class="sgc dim">12/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">NETFLIX.COM</div><div class="sgc grn">Subscriptions</div><div class="sgc red">−£17.99</div>
+        <div class="sgrn">6</div><div class="sgc dim">12/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">AMZN MKTP UK</div><div class="sgc grn">Shopping</div><div class="sgc red">−£28.00</div>
+        <div class="sgrn">7</div><div class="sgc dim">11/06/2025</div><div class="sgc dim">Chase</div><div class="sgc">SALARY BACS</div><div class="sgc grn">Income</div><div class="sgc grn">+£3,200.00</div>
+        <div class="sgrn">8</div><div class="sgc dim">10/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">ALDI STORES UK</div><div class="sgc grn">Groceries</div><div class="sgc red">−£41.20</div>
+        <div class="sgrn">9</div><div class="sgc dim">09/06/2025</div><div class="sgc dim">Monzo</div><div class="sgc">SPOTIFY AB</div><div class="sgc grn">Subscriptions</div><div class="sgc red">−£11.99</div>
+        <div class="sgrn">10</div><div class="sgc dim">08/06/2025</div><div class="sgc dim">Starling</div><div class="sgc">COSTA COFFEE</div><div class="sgc grn">Dining Out</div><div class="sgc red">−£4.85</div>
+      </div>
+      <div class="tab-caption">Import your bank CSV and click ✨ Auto-Categorise — all 80+ UK merchants are matched in seconds. Pro uses Claude AI for anything not in the keyword list.</div>
     </div>
+
+    <!-- 📊 DASHBOARD -->
+    <div class="tab-panel" id="tab-dashboard" style="display:none">
+      <div class="sheet-grid">
+        <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
+        <div class="sgrn">1</div><div class="sgc hdr">Category</div><div class="sgc hdr">Budget</div><div class="sgc hdr">Spent</div><div class="sgc hdr">Remaining</div><div class="sgc hdr">Status</div>
+        <div class="sgrn">2</div><div class="sgc">Groceries</div><div class="sgc dim">£350</div><div class="sgc">£287.43</div><div class="sgc grn">£62.57</div><div class="sgc grn">✓ Under</div>
+        <div class="sgrn">3</div><div class="sgc">Dining Out</div><div class="sgc dim">£120</div><div class="sgc">£148.90</div><div class="sgc red">−£28.90</div><div class="sgc red">⚠ Over</div>
+        <div class="sgrn">4</div><div class="sgc">Transport</div><div class="sgc dim">£80</div><div class="sgc">£64.20</div><div class="sgc grn">£15.80</div><div class="sgc grn">✓ Under</div>
+        <div class="sgrn">5</div><div class="sgc">Subscriptions</div><div class="sgc dim">£45</div><div class="sgc">£52.97</div><div class="sgc red">−£7.97</div><div class="sgc red">⚠ Over</div>
+        <div class="sgrn">6</div><div class="sgc">Shopping</div><div class="sgc dim">£100</div><div class="sgc">£68.00</div><div class="sgc grn">£32.00</div><div class="sgc grn">✓ Under</div>
+        <div class="sgrn">7</div><div class="sgc hl" style="font-weight:600">💰 Safe to spend</div><div class="sgc hl"></div><div class="sgc hl blue">=B12−SUMIF(…)</div><div class="sgc hl grn" style="font-weight:600">£312.44</div><div class="sgc hl grn">← this month</div>
+      </div>
+      <div class="ai-banner">
+        <span class="ai-pill">MRBT PRO</span>
+        <span>✨ AI insight: Dining Out is 24% over budget. Cooking at home 3 more times this month could free up around £30.</span>
+      </div>
+      <div class="tab-caption">Live budget vs actual — updates the moment transactions are imported. Your safe-to-spend number tells you exactly where you stand today.</div>
+    </div>
+
+    <!-- 📈 NET WORTH -->
+    <div class="tab-panel" id="tab-networth" style="display:none">
+      <div class="sheet-grid">
+        <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
+        <div class="sgrn">1</div><div class="sgc hdr" style="grid-column:span 2">📈 Assets</div><div class="sgc hdr"></div><div class="sgc hdr" style="grid-column:span 2">📉 Liabilities</div>
+        <div class="sgrn">2</div><div class="sgc">Current account</div><div class="sgc grn">£4,210.00</div><div class="sgc"></div><div class="sgc">Credit card</div><div class="sgc red">−£820.00</div>
+        <div class="sgrn">3</div><div class="sgc">Savings (ISA)</div><div class="sgc grn">£12,400.00</div><div class="sgc"></div><div class="sgc">Student loan</div><div class="sgc red">−£9,200.00</div>
+        <div class="sgrn">4</div><div class="sgc">Pension</div><div class="sgc grn">£8,750.00</div><div class="sgc"></div><div class="sgc">Car finance</div><div class="sgc red">−£3,100.00</div>
+        <div class="sgrn">5</div><div class="sgc">Investments</div><div class="sgc grn">£3,200.00</div><div class="sgc"></div><div class="sgc"></div><div class="sgc"></div>
+        <div class="sgrn">6</div><div class="sgc hdr">Total assets</div><div class="sgc hdr grn">£28,560.00</div><div class="sgc hdr"></div><div class="sgc hdr">Total liabilities</div><div class="sgc hdr red">−£13,120.00</div>
+        <div class="sgrn">7</div><div class="sgc hl" style="font-weight:600;grid-column:span 2">💎 Net Worth</div><div class="sgc hl"></div><div class="sgc hl grn" style="font-weight:600">£15,440.00</div><div class="sgc hl grn">↑ +£640 vs last month</div>
+      </div>
+      <div class="tab-caption">Track your full financial picture — assets, liabilities, and net worth progress over time. See the trend improving month by month.</div>
+    </div>
+
+    <!-- 🤖 AUTOMATIONS -->
+    <div class="tab-panel" id="tab-automations" style="display:none">
+      <div class="sheet-grid">
+        <div class="sgch"></div><div class="sgch">A</div><div class="sgch">B</div><div class="sgch">C</div><div class="sgch">D</div><div class="sgch">E</div>
+        <div class="sgrn">1</div><div class="sgc hdr" style="grid-column:span 5">🤖 Made Ready Budget — Automation Settings</div>
+        <div class="sgrn">2</div><div class="sgc">Auto-categorise trigger</div><div class="sgc grn">✓ Enabled</div><div class="sgc"></div><div class="sgc dim">Runs nightly at midnight</div><div class="sgc"></div>
+        <div class="sgrn">3</div><div class="sgc">AI Smart Categorise</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Claude AI via Made Ready API</div><div class="sgc"></div>
+        <div class="sgrn">4</div><div class="sgc">Monthly AI insight</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Writes to Dashboard on 1st</div><div class="sgc"></div>
+        <div class="sgrn">5</div><div class="sgc">Anomaly alerts</div><div class="sgc grn">✓ Pro feature</div><div class="sgc"></div><div class="sgc dim">Flags duplicates &amp; spikes</div><div class="sgc"></div>
+        <div class="sgrn">6</div><div class="sgc hdr" style="grid-column:span 5">📥 CSV Bank Import Log</div>
+        <div class="sgrn">7</div><div class="sgc dim">14/06/2025 09:12</div><div class="sgc">Monzo</div><div class="sgc grn">✓ 47 rows imported</div><div class="sgc grn">✓ 44 auto-categorised</div><div class="sgc dim">3 manual</div>
+        <div class="sgrn">8</div><div class="sgc dim">01/06/2025 08:44</div><div class="sgc">Chase</div><div class="sgc grn">✓ 31 rows imported</div><div class="sgc grn">✓ 31 auto-categorised</div><div class="sgc dim">0 manual</div>
+        <div class="sgrn">9</div><div class="sgc dim">01/05/2025 09:01</div><div class="sgc">Starling</div><div class="sgc grn">✓ 28 rows imported</div><div class="sgc grn">✓ 27 auto-categorised</div><div class="sgc dim">1 manual</div>
+      </div>
+      <div class="tab-caption">All automations run silently in the background. The 🤖 Made Ready Budget menu in Google Sheets gives you manual control whenever you need it.</div>
+    </div>
+
   </div>
 </div>
 
@@ -900,7 +985,29 @@ footer{background:var(--footer-bg);border-top:1px solid var(--border);padding:48
 </footer>
 
 <script>
-/* ── THEME ── */
+/* ── SHEET TABS ── */
+var tabFormulas={
+  setup:       {ref:'B2', val:'=IF(B2="","Enter your monthly income",B2)'},
+  transactions:{ref:'D2', val:'=IFERROR(VLOOKUP(C2,Setup!C:D,2,0),"Uncategorised")'},
+  dashboard:   {ref:'B2', val:'=QUERY(\'💳 Transactions\'!A:E,"SELECT D,SUM(E) WHERE A IS NOT NULL GROUP BY D LABEL SUM(E) \'Spent\'",1)'},
+  networth:    {ref:'B7', val:'=SUM(B2:B5)-ABS(SUM(E2:E4))'},
+  automations: {ref:'B2', val:'=IF(B2="TRUE","✓ Nightly trigger active","✗ Trigger not set")'}
+};
+function switchTab(name){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
+  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active');});
+  var panel=document.getElementById('tab-'+name);
+  if(panel)panel.style.display='block';
+  var activeTab=document.querySelector('.stab[data-tab="'+name+'"]');
+  if(activeTab)activeTab.classList.add('active');
+  var f=tabFormulas[name];
+  if(f){
+    document.getElementById('sfb-ref').textContent=f.ref;
+    document.getElementById('sfb-val').textContent=f.val;
+  }
+}
+/* Default to Setup tab on load */
+switchTab('setup');
 function toggleTheme(){
   const html=document.documentElement;
   const isDark=html.getAttribute('data-theme')==='dark';
