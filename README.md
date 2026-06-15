@@ -1,4 +1,4 @@
-# Made Ready Co — Marketing Website
+# Made Ready Budget Tracker
 
 The public-facing marketing site for **Made Ready Budget Tracker (MRBT)** — the only Google Sheets budget tracker on Etsy built specifically for UK banks. Sold by [Made Ready Co](https://madeready.co) on Etsy.
 
