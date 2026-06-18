@@ -14,7 +14,7 @@ See it live: **[Made Ready Budget Tracker](https://budget-tracker-iota-mocha.ver
 | Domain | madeready.co |
 | Email | roland@madeready.co |
 | Product | Made Ready Budget Tracker (MRBT) |
-| Internal code | MRBT (replaces APFE everywhere) |
+| Internal code | MRBT |
 | Etsy shop | Made Ready Co |
 
 ---
@@ -224,7 +224,7 @@ Build the £34.99 product. Only start this after MRBT Standard has validated dem
 
 #### Vercel API endpoint
 
-- [ ] Create GitHub repo: madeready-apfe-api
+- [ ] Create GitHub repo: madeready-ai-api
 - [ ] Next.js project with API routes:
   - [ ] `/api/categorise` — sends transaction descriptions to Claude, returns categories
   - [ ] `/api/insight` — sends dashboard data, returns monthly plain-English insight
@@ -233,8 +233,8 @@ Build the £34.99 product. Only start this after MRBT Standard has validated dem
 - [ ] Shared Claude API client (`lib/claude.ts`)
 - [ ] Middleware: secret token validation + rate limiting
 - [ ] Deploy to Vercel
-- [ ] Connect custom domain: apfe.madeready.co (CNAME in Namecheap)
-- [ ] Environment variables set in Vercel: ANTHROPIC_API_KEY, APFE_SECRET_TOKEN
+- [ ] Connect custom domain: api.madeready.co (CNAME in Namecheap)
+- [ ] Environment variables set in Vercel: ANTHROPIC_API_KEY, MRBT_SECRET_TOKEN
 
 #### Pro sheet additions
 
@@ -308,8 +308,8 @@ Future products (all researched and scoped):
 | Repo | Description | Status |
 |---|---|---|
 | `madeready-site` | This repo — marketing website | ✅ Live |
-| `madeready-apfe-api` | MRBT Pro AI backend (Next.js / Vercel) | ⏳ Phase 3 |
+| `madeready-ai-api` | MRBT Pro AI backend (Next.js / Vercel) | ⏳ Phase 3 |
 
 ---
 
-*© 2025 Made Ready Co · madeready.co · roland@madeready.co*
+*© 2025 Made Ready Co · madeready.co · madeready.co@gmail.com*
