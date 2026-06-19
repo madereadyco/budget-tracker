@@ -12,7 +12,7 @@ See it live: **[Made Ready Budget Tracker](https://budget-tracker-iota-mocha.ver
 |---|---|
 | Brand | Made Ready Co |
 | Domain | madeready.co |
-| Email | roland@madeready.co |
+| Email | madeready.co@gmail.com |
 | Product | Made Ready Budget Tracker (MRBT) |
 | Internal code | MRBT |
 | Etsy shop | Made Ready Co |
